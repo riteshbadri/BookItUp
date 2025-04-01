@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: ritesh
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Options: update | create | create-drop | none
+    show-sql: false  # Enables SQL query logging
+    properties:
+      hibernate:
+        format-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # Database dialect
+  mail:
+    host: localhost
+    port: 1025
+    username: ritesh
+    password: badri
+    properties:
+      smtp:
+        trust: "*"
+      auth: true
+      starttls:
+        enable: true
+      connectiontimeout: 5000
+      timeout: 3000
+      writetimeout: 5000
+  application:
+    security:
+      jwt:
+        secret-key: abc4c14e0ece165aa2dda0485825f65b5f169a850b2f7b22e04e21a11c127bb5
+        expiration: 8640000
+    mailing:
+      frontend:
+        activation_url: http://localhost:4200/activate-account
+    file:
+      upload:
+        photos-output-path: ./uploads
+  server:
+    port: 8088
